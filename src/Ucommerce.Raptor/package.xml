@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<umbPackage>
+  <files>
+    <file>
+      <guid>DisplayRaptorModule.cshtml</guid>
+      <orgPath>~/Views/MacroPartials</orgPath>
+      <orgName>DisplayRaptorModule.cshtml</orgName>
+    </file>
+	  <file>
+		  <guid>Ucommerce.Raptor.dll</guid>
+		  <orgPath>~/bin</orgPath>
+		  <orgName>Ucommerce.Raptor.dll</orgName>
+	  </file>
+  </files>
+  <info>
+    <package>
+      <name>Ucommerce.Raptor</name>
+      <version>1.0.2</version>
+      <iconUrl></iconUrl>
+      <license url="http://opensource.org/licenses/MIT">MIT License</license>
+      <url>https://www.raptorservices.com</url>
+      <requirements type="Strict">
+        <major>8</major>
+        <minor>0</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Ucommerce</name>
+      <website>https://ucommerce.net</website>
+    </author>
+    <contributors></contributors>
+    <readme><![CDATA[This package installs a macro and a new api end point. The macro that serves as an example of how to implement a Raptor recommendation module.
+The macro can be added to a template in umbraco, and then it will display the raw JSON from the Raptor module.
+The rendering of the recommendations can be done by the developer, based on the JSON returned from the raptor module.
+All available modules, as well as the customerid and the api key can be obtained by logging in to the Raptor Controlpanel, https://controlpanel.raptorsmartadvisor.com.
+The new Api end point will serve as a Product Feed to Raptor.
+Please contact Raptor support, if you have not been given access to the controlpanel. 
+support@raptorservices.com]]></readme>
+  </info>
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros>
+    <macro>
+      <name>DisplayRaptorModule</name>
+      <alias>DisplayRaptorModule</alias>
+      <macroType>PartialView</macroType>
+      <macroSource>~/Views/MacroPartials/DisplayRaptorModule.cshtml</macroSource>
+      <useInEditor>False</useInEditor>
+      <dontRender>False</dontRender>
+      <refreshRate>0</refreshRate>
+      <cacheByMember>False</cacheByMember>
+      <cacheByPage>False</cacheByPage>
+      <properties>
+        <property name="ApiKey" alias="apiKey" sortOrder="2" propertyType="Umbraco.TextBox" />
+        <property name="CustomerId" alias="customerId" sortOrder="0" propertyType="Umbraco.TextBox" />
+        <property name="ModuleName" alias="moduleName" sortOrder="1" propertyType="Umbraco.TextBox" />
+      </properties>
+    </macro>
+  </Macros>
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+  <Actions />
+</umbPackage>

@@ -1,0 +1,25 @@
+﻿  @inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+<!-- Replace this pre tag with the actual display markup -->
+<pre id="raptorResult">
+   
+</pre>
+
+<script type="text/javascript">
+
+   $(function(){
+       
+        //Example of a Raptor API request. Add query parameters if needed. Some of the modules requires input parameters like the current product id, etc.
+        //Please visit https://controlpanel.raptorsmartadvisor.com for further documentation of the available modules.
+        
+        const url ="https://api.raptorsmartadvisor.com/v1/@Model.MacroParameters["customerId"]/@Model.MacroParameters["moduleName"]/10/@Model.MacroParameters["apiKey"]?FullInfo=True&"
+        $.ajax(url,{
+        success: function(response){
+            //The response is a JSON list. Use this for rendering the products as you wish.  
+            //The following line displays the JSON for example purposes, and should be replaced with the actual rendering code
+            $("#raptorResult").html(JSON.stringify(response,null,3));
+        }
+    })
+   });
+   
+</script>
