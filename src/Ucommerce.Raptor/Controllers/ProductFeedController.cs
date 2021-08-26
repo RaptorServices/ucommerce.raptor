@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using Raptor.Ucommerce.Exceptions;
 using Raptor.Ucommerce.Models;
@@ -99,7 +100,7 @@ namespace Raptor.Ucommerce.Controllers
 
         private ProductFeedModel MapProduct(Product product, ProductCatalog catalog)
         {
-            var productUrl = _urlService.GetUrl(catalog, product);
+            var productUrl = GetAbsoluteProductUrl(product, catalog);
 
             var priceGroup = _priceGroupIndex.Find().Where(x => x.Guid == catalog.DefaultPriceGroup).First();
             var price = product.PricesInclTax[priceGroup.Name];
@@ -113,6 +114,11 @@ namespace Raptor.Ucommerce.Controllers
                 ImageUrl = product.ThumbnailImageUrl,
                 Url = productUrl
             };
+        }
+
+        private string GetAbsoluteProductUrl(Product product, ProductCatalog catalog)
+        {
+            return $"{HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority)}{_urlService.GetUrl(catalog, product)}";
         }
 
         private IEnumerable<List<Guid>> Batch(IList<Guid> data)
