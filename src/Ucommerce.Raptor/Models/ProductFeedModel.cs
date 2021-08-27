@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Raptor.Ucommerce.Models
+﻿namespace Raptor.Ucommerce.Models
 {
     public class ProductFeedModel
     {
@@ -14,5 +8,6 @@ namespace Raptor.Ucommerce.Models
         public string Price { get; set; }
         public string ImageUrl { get; set; }
         public string Url { get; set; }
+        public string Sku { get; set; }
     }
 }
