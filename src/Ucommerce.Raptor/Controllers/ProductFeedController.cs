@@ -108,6 +108,7 @@ namespace Raptor.Ucommerce.Controllers
             return new ProductFeedModel()
             {
                 ProductId = product.Guid.ToString(),
+                Sku = product.Sku,
                 DisplayName = product.DisplayName,
                 ShortDescription = product.ShortDescription,
                 Price = new Money(price, priceGroup.CurrencyISOCode).ToString(),
